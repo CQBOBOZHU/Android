@@ -49,45 +49,45 @@ public class MainAcitivty extends Activity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new RecyclerAdapter(mData,this,R.layout.list_item));
 
-//        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) findViewById(R.id.gifView);
-//        View header= LayoutInflater.from(this).inflate(R.layout.listview_header,null);
-//        mlistview = (ListView) findViewById(R.id.listview);
-//        mlistview.addHeaderView(header,null,false);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) findViewById(R.id.gifView);
+        View header= LayoutInflater.from(this).inflate(R.layout.listview_header,null);
+        mlistview = (ListView) findViewById(R.id.listview);
+        mlistview.addHeaderView(header,null,false);
 
-//        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
-//                .setAutoPlayAnimations(true)//自动播放动画
-////                .setUri(Uri.parse("asset://com.imageviewdemo/de.gif"))//路径
-//                .setUri(Uri.parse("http://images.17173.com/2014/news/2014/12/29/2014cpb1229gif01.gif"))
-//                .build();
-//        simpleDraweeView.setController(draweeController);
-//        int a=3;
-//        int b=(++a>2)?(a++):(a=3);
-//        Log.v("this",b+"");
-//
-//        mlistview.setAdapter(new BaseAdapter() {
-//            @Override
-//            public int getCount() {
-//                return mData.size();
-//            }
-//
-//            @Override
-//            public Object getItem(int position) {
-//                return mData.get(position);
-//            }
-//
-//            @Override
-//            public long getItemId(int position) {
-//                return position;
-//            }
-//
-//            @Override
-//            public View getView(int position, View convertView, ViewGroup parent) {
-//                View view=LayoutInflater.from(MainAcitivty.this).inflate(R.layout.list_item,null);
-//                TextView t_view= (TextView) view.findViewById(R.id.item_textview);
-//                t_view.setText(mData.get(position));
-//                return view;
-//            }
-//        });
+        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                .setAutoPlayAnimations(true)//自动播放动画
+//                .setUri(Uri.parse("asset://com.imageviewdemo/de.gif"))//路径
+                .setUri(Uri.parse("http://images.17173.com/2014/news/2014/12/29/2014cpb1229gif01.gif"))
+                .build();
+        simpleDraweeView.setController(draweeController);
+        int a=3;
+        int b=(++a>2)?(a++):(a=3);
+        Log.v("this",b+"");
+
+        mlistview.setAdapter(new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return mData.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return mData.get(position);
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view=LayoutInflater.from(MainAcitivty.this).inflate(R.layout.list_item,null);
+                TextView t_view= (TextView) view.findViewById(R.id.item_textview);
+                t_view.setText(mData.get(position));
+                return view;
+            }
+        });
     }
     List<String> mData=new ArrayList<String>();
     private void initData() {
