@@ -7,8 +7,10 @@ import android.database.DataSetObserver;
 import android.graphics.Movie;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/10/25.
  */
-public class MainAcitivty extends Activity {
+public class MainAcitivty extends AppCompatActivity {
     ListView mlistview;
 
 
@@ -44,6 +46,8 @@ public class MainAcitivty extends Activity {
         super.onCreate(savedInstanceState);
         Fresco.initialize(this);
         setContentView(R.layout.main_activity);
+        initToolBar();
+
         RecyclerView recyclerView= (RecyclerView) findViewById(R.id.recyclerview);
         initData();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -89,12 +93,22 @@ public class MainAcitivty extends Activity {
             }
         });
     }
+
+    private void initToolBar() {
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        TextView title= (TextView) findViewById(R.id.toolbar_title);
+        title.setText("my app");
+    }
+
     List<String> mData=new ArrayList<String>();
     private void initData() {
         for (int i=0;i<50;i++){
             mData.add("adada"+i);
         }
     }
+
+
 
 
 }
